@@ -1,0 +1,8 @@
+rms_marcaciones_principal:
+    pattern:  /
+    defaults: { _controller: RmsMarcacionesBundle:RmsMarcaciones:principal }
+
+rms_marcaciones_busqueda_mes_anno:
+    pattern:  /busqueda/annomes
+    defaults: { _controller: RmsMarcacionesBundle:RmsMarcaciones:busquedaPorMesAnno }
+    requirements: { _method: post }

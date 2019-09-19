@@ -1,0 +1,55 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Ernesto
+ * Date: 3/05/15
+ * Time: 0:49
+ */
+
+namespace ProyUser\ReservacionBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="reservacion_almuerzo")
+ */
+class Reservacion_almuerzo
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $fecha_reservacion;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ProyUser\UsuarioBundle\Entity\Persona")
+     */
+    protected $usuario;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ProyUser\ReservacionBundle\Entity\Carta_almuerzos")
+     */
+    protected $carta_almuerzo;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    protected $importe;
+
+    /**
+     * @ORM\Column(type="int")
+     */
+    protected $cant_platos;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ProyUser\ReservacionBundle\Entity\Plato", mappedBy="reservacion_almuerzo")
+     */
+    protected $platos;
+} 

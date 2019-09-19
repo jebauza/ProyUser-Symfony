@@ -1,0 +1,7 @@
+parameters:
+#    archivo_biblioteca.example.class: ProyUser\ArchivoBibliotecaBundle\Example
+
+services:
+#    archivo_biblioteca.example:
+#        class: %archivo_biblioteca.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

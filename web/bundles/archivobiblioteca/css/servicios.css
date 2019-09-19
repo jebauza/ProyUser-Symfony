@@ -1,0 +1,52 @@
+.tab-cuerpo > #tab-biblioteca,.tab-cuerpo > #tab-archivo
+{ display: none}
+.buscar-general{
+  margin: 15px;
+}
+/*.contenido{min-height: 410px;}*/
+.busqueda-avanzada{background: #EEEEEE; padding: 10px; font-size: 12px;height: 550px;}
+.titulo-desplegar{font-weight: bold;
+border-bottom:1px solid #ddd; }
+div#tab-general.col-xs-12{ padding-right: 0px !important;}
+#cerrar-desplegar-general{color: #ff0000; }
+#bucsar-general > button{margin-top: 30px}
+table a:hover{text-decoration: none;}
+table a{color: #005aff;}
+.datos-ocultos{display: none}
+td:hover{font-weight: normal!important;}
+.select-paginacion{margin:15px 0px 10px 0px}
+.nav-tab li a{color: #999999}
+.menu-vertical,.vertical{padding: 0px!important;}
+.menu-vertical{height: 450px;}
+.vertical li:hover,.vertical li:focus,.item-active{ background-color: #EFEFEF;
+    background-image: -moz-linear-gradient(top center , white 0%, #eee 100%);
+    background-image: -webkit-gradient(top center , white 0%, #eee 100%);
+}
+.vertical li{padding:5px;
+    padding-left:15px;text-decoration: none; list-style: outside none none;}
+.vertical a{color: #333333}
+.vertical a:hover, .vertical a:focus{border-color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #333;
+    text-decoration: none;}
+.menu-vertical{  border: 1px solid #ddd;}
+.item-active{border: 1px solid #EEEEEE;}
+#tab-general .col-xs-10{padding: 0px!important;}
+.menu-vertical h4{border-bottom: 2px solid #eee;
+padding-bottom: 5px; text-align: left;font-size: 12px; font-weight: bold; margin-left: 10px;
+}
+input[type="search"],div.dataTables_length label{padding: 2px;margin-top: 10px}
+#menu-horizontal li a{color: #555; }
+#menu-horizontal li.active a{ font-weight: bold}
+.tab-cuerpo table{font-size: 11px}
+.prestamos{display: none}
+fieldset{padding: 15px; border: 1px solid #ccc;border-radius: 3px; margin: 20px 10px 15px 10px; background: #f1f1f1}
+fieldset input,fieldset select.form-control{margin:5px 5px 10px 0; min-width: 130px; max-width: 130px}
+fieldset label, fieldset .btn{font-size: 12px}
+fieldset label{min-width: 70px; text-align: right}
+fieldset .btn{margin-top: 5px}
+.table-responsive label,.table-responsive .dataTables_info,.table-responsive .dataTables_paginate{font-size: 12px}
+
+

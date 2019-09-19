@@ -1,0 +1,15 @@
+archivo_biblioteca_principal:
+    pattern:  /
+    defaults: { _controller: ArchivoBibliotecaBundle:Default:principal }
+
+archivo:
+    resource: "@ArchivoBibliotecaBundle/Resources/config/archivorouting.yml"
+    prefix:   /archivo
+
+biblioteca:
+    resource: "@ArchivoBibliotecaBundle/Resources/config/bibliotecarouting.yml"
+    prefix:   /biblioteca
+
+prestamos:
+    resource: "@ArchivoBibliotecaBundle/Resources/config/prestamosrouting.yml"
+    prefix:   /prestamos

@@ -1,0 +1,53 @@
+{# documentos.html.twig  -- Archivo y documento#}
+
+
+{%extends '::base.html.twig'%}
+
+{% block title %}{{ parent() }}-Archivo y Biblioteca{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/archivobiblioteca/css/servicios.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/dataTables/media/css/jquery.dataTables.css') }}">
+  <!--  <link rel="stylesheet" href="{{ asset('assets/rwd/docs/css/rwd-table.min.css') }}">-->
+{% endblock %}
+
+{% block activedoc %}class="active"{% endblock %}
+
+{% block body %}
+
+{% set mostrarAlertas = "" %}
+{% if cantAlertas > 0 %}
+    {% set mostrarAlertas = cantAlertas %}
+{% endif %}
+<div class="bs-docs-section container">
+    <div class="row">
+        <input type="hidden" value="{{ activo }}" id="li-activo"/>
+        <ul class="nav nav-tabs" id="menu-horizontal">
+            <li id="general"><a href="#">Prestamos <span class="badge" style="background-color: #c12e2a">{{ mostrarAlertas }}</span></a></li>
+            <li id="revista"><a href="#">Revista</a></li>
+            <li id="libro"><a href="#">Libro</a></li>
+            <li id="proyecto"><a href="#">Proyecto</a></li>
+        </ul>
+        <div class="tab-cuerpo">
+            <div id="tab-general">
+                {%include 'ArchivoBibliotecaBundle:Documentos:general.html.twig'%}
+            </div>
+            <div id="tab-proyecto">
+                {%include 'ArchivoBibliotecaBundle:Archivo:archivo.html.twig'%}
+            </div>
+            <div id="tab-revista">
+                {%include 'ArchivoBibliotecaBundle:Biblioteca:revista.html.twig'%}
+            </div>
+            <div id="tab-libro">
+                {%include 'ArchivoBibliotecaBundle:Biblioteca:libro.html.twig'%}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/archivobiblioteca/js/servicios.js') }}"></script>
+    <script src="{{ asset('assets/dataTables/media/js/jquery.dataTables.js') }}"></script>
+  <!--  <script src="{{ asset('assets/rwd/docs/js/rwd-table.js') }}"></script>-->
+{% endblock %}

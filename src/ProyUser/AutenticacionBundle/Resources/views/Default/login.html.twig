@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ProyUser</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/autenticacion/css/login.css') }}">
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/UserProject-Logo.png') }}" />
+
+    <script type="text/javascript" src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/jquery/jquery-1.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/autenticacion/js/login.js') }}"></script>
+
+
+</head>
+<body>
+
+{#{{app.user.nombre}}#}
+<div class="logo-box">
+<h2> <img  src="{{ asset('assets/images/UserProject-Logo.png') }}" id="logo"  alt=""/>ProyUser </h2></div>
+<div id="loginbox" class="">
+    <form id="loginform" class="form-vertical" action="{{ path('autenticacion_login') }}" method="post">
+
+
+
+        <div class=" panel">
+            <div class="input-group ">
+                <span  class="input-group-addon "><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" id="username" name="_username" class="form-control" placeholder="Usuario" required="required" title="(Primer nombre)-(CI) Ej: Juan-58021520106">
+            </div>
+
+            <div class="input-group ">
+                <span class="input-group-addon"><i class=" glyphicon glyphicon-lock"></i></span>
+                <input type="password" id="password" name="_password" class="form-control" placeholder="Clave" required="required" title="(Numero de 10 digitos de la tarjeta de marcar el reloj) Ej: 0000031052">
+            </div>
+
+
+
+            <div class="form-actions panel-footer">
+                <span class="pull-right"><input type="submit" name="login" class="btn btn-primary btn-primary" value="Entrar" /></span>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>

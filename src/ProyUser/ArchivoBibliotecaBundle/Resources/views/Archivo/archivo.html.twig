@@ -1,0 +1,105 @@
+<div class="col-xs-12 a" >
+    <div>
+        <form id="bucsar-archivo" class="form-inline" method="post" action="{{ path('archivo_busqueda') }}">
+            <fieldset>
+                {% set nombreActual,nombre,proyectista,anno,programa,especialidad,etapa,sistContructivo = "","","","","","","",""  %}
+                {% if arrCamposProyecto.nombre_actual is defined %}
+                    {% set nombreActual = arrCamposProyecto.nombre_actual %}
+                {% endif %}
+                {% if arrCamposProyecto.nombre is defined %}
+                    {% set nombre = arrCamposProyecto.nombre %}
+                {% endif %}
+                {% if arrCamposProyecto.proyectista is defined %}
+                    {% set proyectista = arrCamposProyecto.proyectista %}
+                {% endif %}
+                {% if arrCamposProyecto.anno is defined %}
+                    {% set anno = arrCamposProyecto.anno %}
+                {% endif %}
+                {% if arrCamposProyecto.programa is defined %}
+                    {% set programa = arrCamposProyecto.programa %}
+                {% endif %}
+                {% if arrCamposProyecto.especialidad is defined %}
+                    {% set especialidad = arrCamposProyecto.especialidad %}
+                {% endif %}
+                {% if arrCamposProyecto.etapa is defined %}
+                    {% set etapa = arrCamposProyecto.etapa %}
+                {% endif %}
+                {% if arrCamposProyecto.sistema_const is defined %}
+                    {% set sistContructivo = arrCamposProyecto.sistema_const %}
+                {% endif %}
+
+
+
+            <label for="titulo">Nomb. Actual:</label>
+            <input type="text"  class="form-control input-sm" id="nombre_actual" name="_nombre_actual value="{{ nombreActual }}" />
+            <label for="titulo">Nombre:</label>
+            <input type="text"  class="form-control input-sm" id="nombre" name="_nombre" value="{{ nombre }}"/>
+            <label for="titulo">Proyectista:</label>
+            <input type="text"  class="form-control input-sm" id="proyectista" name="_proyectista" value="{{ proyectista }}"/>
+            <label for="titulo">Año:</label>
+            <input type="text"  class="form-control input-sm" id="anno" name="_anno" value="{{ anno }}"/>
+            <label for="titulo">Programa:</label>
+            <input type="text"  class="form-control input-sm" id="programa" name="_programa" />
+
+            <label for="titulo">Especialidad:</label>
+            <input type="text"  class="form-control input-sm" id="especialidad" name="_especialidad"/>
+            <label for="titulo">Etapa:</label>
+            <input type="text"  class="form-control input-sm" id="etapa" name="_etapa"/>
+                <label for="titulo">Sist. Constructivo:</label>
+                <input type="text"  class="form-control input-sm" id="sistema_const" name="_sistema_const"/>
+         <!--   <label for="titulo">Observación:</label>
+            <input type="text"  class="form-control input-sm" id="observacion" name="_observacion"/>!-->
+            <button type="submit" class="btn btn-default pull-right"><span class="glyphicon glyphicon-search"></span>Buscar</button>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+{% if arrProyectos is defined %}
+<div class="col-xs-12 contenido" >
+    <div class="table-responsive" data-pattern="priority-columns" >
+        <table  class="table table-small-font table-striped  example">
+           <thead>
+           <tr>
+               <th>Nombre</th>
+               <th data-priority="1">Nombre Actual</th>
+               <th>Proyectista</th>
+               <th>Anno</th>
+               <th data-priority="1">Programa</th>
+               <th data-priority="1">Sis Constructivo</th>
+               <th data-priority="1">Especialidad</th>
+               <th data-priority="1">Etapa</th>
+               <th data-priority="1">Observacion</th>
+               <th>Cubiculo</th>
+               <th>Estante</th>
+               <th>Casilla</th>
+           </tr>
+           </thead>
+
+            <tbody>
+
+            {% for proyecto in arrProyectos %}
+            <tr>
+                <td >{{  proyecto.nombre }}</td>
+                <td data-priority="1">{{  proyecto.nombre_actual }}</td>
+                <td>{{  proyecto.nombre_proyectista }}</td>
+                <td>{{  proyecto.anno_proyecto }}</td>
+                <td data-priority="1">{{  proyecto.programa }}</td>
+                <td data-priority="1">{{  proyecto.sistema_construccion }}</td>
+                <td data-priority="1">{{  proyecto.especialidad }}</td>
+                <td data-priority="1">{{  proyecto.etapa }}</td>
+                <td data-priority="1">{{  proyecto.observacion }}</td>
+                <td>{{  proyecto.cubiculo }}</td>
+                <td>{{  proyecto.estante }}</td>
+                <td>{{  proyecto.casilla }}</td>
+            </tr>
+
+        {% endfor %}
+
+
+            </tbody>
+    </table>
+    </div>
+</div>
+{% endif %}
+

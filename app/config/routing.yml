@@ -1,0 +1,27 @@
+archivo_biblioteca:
+    resource: "@ArchivoBibliotecaBundle/Resources/config/archivo_bibliotecarouting.yml"
+    prefix:   /documentos
+
+reservacion:
+    resource: "@ReservacionBundle/Resources/config/reservacionrouting.yml"
+    prefix:   /reservacion
+
+rms_marcaciones:
+    resource: "@RmsMarcacionesBundle/Resources/config/rmsmarcacionesrouting.yml"
+    prefix:   /rms
+
+autenticacion:
+    resource: "@AutenticacionBundle/Resources/config/autenticacionrouting.yml"
+    prefix:   /login
+
+perfil:
+    resource: "@UsuarioBundle/Resources/config/perfilrouting.yml"
+    prefix:   /perfil
+
+directorio:
+    resource: "@UsuarioBundle/Resources/config/directoriorouting.yml"
+    prefix:   /directorio
+
+principal:
+    path: /
+    defaults: { _controller: AutenticacionBundle:Autenticacion:principal }

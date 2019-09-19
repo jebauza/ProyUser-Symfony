@@ -1,0 +1,96 @@
+{%extends '::base.html.twig'%}
+
+{% block title %}{{ parent() }}-Mi Perfil{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/usuario/css/perfil/perfil.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="bs-docs-section container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel col-xs-12">
+                <div class="panel-heading ">Datos presonales</div>
+                <div class="foto-perfil col-xs-2"><img src="{{ asset('bundles/usuario/images/directorio/Trabajadores/'~app.user.fotoNombre) }}" class="img thumbnail"></div>
+                <table class="col-xs-9">
+                    <thead>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    </thead>
+                    <tr>
+                        <td><strong>Nombre:</strong> {{ app.user.nombre }}</td>
+                        <td><strong>Telefono Particular:</strong> {{ app.user.telefono }}</td >
+                    </tr>
+                    <tr>
+                        <td><strong>C. Identidad:</strong> {{ app.user.cIdentida }}</td>
+                        <td><strong>Fecha de Nacimiento:</strong>  {{ app.user.fechaNaci | date("d/m/Y") }}</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Municipio:</strong> {{ app.user.municipio }}</td>
+                        <td><strong>Escolaridad:</strong> {{ app.user.escolarida }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Direccion Particular:</strong> {{ app.user.direccion }}</td>
+                        <td><strong>Edad:</strong> {{ app.user.edad }} años</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Especialidad:</strong> {{ app.user.especialida }}</td>
+                        <td><strong>Estado Civil:</strong> {{ app.user.estadoCivil }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lugar de Nacimiento:</strong> {{ app.user.lugarNacimiento }}</td>
+                        <td><strong>Cantidad de Hijos:</strong> {{ app.user.noHijos }}</td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="panel col-xs-12">
+                <div class="panel-heading ">Datos empresariales</div>
+                <table class="col-xs-12">
+                    <thead>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    </thead>
+                    <tr>
+                        <td><strong>No.Tarjeta:</strong> {{ app.user.noTarjeta }}</td>
+                        <td><strong>Area:</strong> {{ app.user.area }}</td >
+                        <td><strong>Correo:</strong> {{ app.user.correo }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tarjeta RMS:</strong> {{ app.user.tarjetaReloj }}</td>
+                        <td><strong>Area Cod:</strong> {{ app.user.areaNum }}</td>
+                        <td><strong>Piso:</strong> {{ app.user.piso }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Categoria:</strong> {{ app.user.categOcupada }}</td>
+                        <td><strong>Departamento:</strong> {{ app.user.departamento }}</td>
+                        <td><strong>Cubiculo:</strong> {{ app.user.cubiculo }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Salario:</strong> {{ app.user.salario }} MN</td>
+                        <td><strong>Dpto. Cod:</strong> {{ app.user.codigoDpto }}</td>
+                        <td><strong>Telefono Oficina:</strong> {{ app.user.telefonoOficina }}</td>
+                    </tr>
+                    {% set horario = "7.30am-5.00pm" %}
+                    {% if app.user.horaEntradSalid|length != 0 %}
+                        {% set horario = app.user.horaEntradSalid %}
+                    {% endif %}
+                    <tr>
+                        <td><strong>Fecha Inicio:</strong> {{ app.user.fechaAlta |date("d/m/Y") }}</td>
+                        <td><strong>Cargo:</strong> {{ app.user.cargoActual }}</td>
+                        <td><strong>Horario Laboral:</strong> {{ horario }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

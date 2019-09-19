@@ -1,0 +1,13 @@
+biblioteca_principal:
+    pattern:  /
+    defaults: { _controller: ArchivoBibliotecaBundle:Biblioteca:principal }
+
+biblioteca_busqueda_libros:
+    pattern:  /busqueda-libros
+    defaults: { _controller: ArchivoBibliotecaBundle:Biblioteca:buscarLibros }
+    requirements: { _method: post }
+
+biblioteca_busqueda_revistas:
+    pattern:  /busqueda-revistas
+    defaults: { _controller: ArchivoBibliotecaBundle:Biblioteca:buscarRevistas }
+    requirements: { _method: post }

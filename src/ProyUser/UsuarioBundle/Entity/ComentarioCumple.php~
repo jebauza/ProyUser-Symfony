@@ -1,0 +1,60 @@
+<?php
+
+namespace ProyUser\UsuarioBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ComentarioCumple
+ *
+ * @ORM\Table(name="comentario_cumple")
+ * @ORM\Entity
+ */
+class ComentarioCumple
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_comentario_cumple", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idComentarioCumple;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_comenta", type="string", length=30, nullable=false)
+     */
+    private $nombreComenta;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="user_comenta", type="string", length=15, nullable=false)
+     */
+    private $userComenta;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comentario", type="text", nullable=false)
+     */
+    private $comentario;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha", type="datetime", nullable=false)
+     */
+    private $fecha;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ci_cumple_anno", type="string", length=11, nullable=false)
+     */
+    private $ciCumpleAnno;
+
+
+}

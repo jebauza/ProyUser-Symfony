@@ -1,0 +1,64 @@
+#search-nombre,#seleccionar-filtro{margin: 2%
+}
+.filtros span.glyphicon {
+color: #ff0000;
+}
+.input-group select{margin-left: 16px}
+.filtros{
+    border: 1px solid #CDCDCD;
+    margin: 10px 15px 10px 30px ;
+    padding: 15px;
+    border-radius: 5px;
+    width: 20%;
+    display: none;
+}
+#municipio, #cargo, #piso, #telefono, #cubiculo, #area{
+
+}
+.foto{
+    width: 100px;
+    position: relative;
+    height: 100px;
+    display:block ;
+}
+.visible-lg{
+    font-size: 15px;
+
+}
+.personas table tbody tr td:hover {
+    box-shadow: 0px 0px 0px #ddd;
+    font-weight: normal;
+
+}
+header .container{
+    height: 51px;
+}
+
+.personas{
+    margin-top: 80px;
+}
+.zoom-foto{
+    position: absolute;
+    height: 250px;
+    width: 200px;
+    z-index: 2000;
+}
+
+.paginacion{display: inline-block;margin-left:30%;
+}
+
+.select-paginacion{margin-bottom: 20px}
+
+.info{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top:200px;
+    left: 200px;
+    z-index: 900000;
+}
+
+.hidden-lg{font-size: 10px;
+
+}
+input[type="search"],input[type="text"]{position: relative; float: left}

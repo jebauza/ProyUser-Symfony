@@ -1,0 +1,8 @@
+archivo_principal:
+    pattern:  /
+    defaults: { _controller: ArchivoBibliotecaBundle:Archivo:principal }
+
+archivo_busqueda:
+    pattern:  /busqueda-proyecto
+    defaults: { _controller: ArchivoBibliotecaBundle:Archivo:busqueda }
+    requirements: { _method: post }

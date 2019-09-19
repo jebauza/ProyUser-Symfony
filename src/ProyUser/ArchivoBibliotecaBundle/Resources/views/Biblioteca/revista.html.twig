@@ -1,0 +1,115 @@
+<div class="col-xs-12 ">
+    <div >
+        <form id="bucsar-revista" class="form-inline" method="post" action="{{ path('biblioteca_busqueda_revistas') }}">
+            <fieldset>
+                {% set titulo,mes,anno,editorial,frecuencia,institucion,nacion,idioma,categoria = "","","","","","","","",""  %}
+                {% if arrCamposRevista.titulo is defined %}
+                    {% set titulo = arrCampos.titulo %}
+                {% endif %}
+                {% if arrCamposRevista.mes is defined %}
+                    {% set mes = arrCamposRevista.mes %}
+                {% endif %}
+                {% if arrCamposRevista.anno is defined %}
+                    {% set anno = arrCamposRevista.anno %}
+                {% endif %}
+                {% if arrCamposRevista.editorial is defined %}
+                    {% set editorial = arrCamposRevista.editorial %}
+                {% endif %}
+                {% if arrCamposRevista.frecuencia is defined %}
+                    {% set frecuencia = arrCamposRevista.frecuencia %}
+                {% endif %}
+                {% if arrCamposRevista.institucion is defined %}
+                    {% set institucion = arrCamposRevista.institucion %}
+                {% endif %}
+                {% if arrCamposRevista.nacion is defined %}
+                    {% set nacion = arrCamposRevista.nacion %}
+                {% endif %}
+                {% if arrCamposRevista.idioma is defined %}
+                    {% set idioma = arrCamposRevista.idioma %}
+                {% endif %}
+                {% if arrCamposRevista.categoria is defined %}
+                    {% set categoria = arrCamposRevista.categoria %}
+                {% endif %}
+
+
+
+                <label for="titulo">Titulo:</label>
+                <input type="text"  class="form-control input-sm" id="titulo" name="_titulo" value="{{ titulo }}"/>
+                <label for="titulo">Mes:</label>
+                <input type="text"  class="form-control input-sm" id="mes" name="_mes" value="{{ mes }}"/>
+                <label for="titulo">Año:</label>
+                <input type="text"  class="form-control input-sm" id="anno" name="_anno" value="{{ anno }}"/>
+                <label for="titulo">Editorial:</label>
+                <input type="text"  class="form-control input-sm" id="editorial" name="_editorial" value="{{ editorial }}"/>
+                <label for="titulo">Frecuencia:</label>
+                <input type="text"  class="form-control input-sm" id="frecuencia" name="_frecuencia" value="{{ frecuencia }}"/>
+                <label for="titulo">Institución:</label>
+                <input type="text"  class="form-control input-sm" id="institucion" name="_institucion" value="{{ institucion }}"/>
+                <label for="titulo">Nacion:</label>
+                <input type="text"  class="form-control input-sm" id="nacion" name="_nacion" value="{{ nacion }}"/>
+                <label for="titulo">Idioma:</label>
+                <input type="text"  class="form-control input-sm" id="idioma" name="_idioma" value="{{ idioma }}"/>
+                <label for="titulo">Categoria:</label>
+                <input type="text"  class="form-control input-sm" id="categoria" name="_categoria" value="{{ categoria }}"/>
+                <button type="submit" class="btn btn-default pull-right"><span class="glyphicon glyphicon-search"></span>Buscar</button>
+            </fieldset>
+
+        </form>
+    </div>
+</div>
+
+{% if arrRevistas is defined %}
+<div class="col-xs-12 contenido">
+    <div class="table-responsive" data-pattern="priority-columns" >
+        <table id="" class="table table-small-font  example">
+            <thead>
+            <tr>
+                <th>Documento</th>
+                <th>Mes</th>
+                <th >Categoria</th>
+
+                <th>Anno</th>
+
+                <th >Tema</th>
+                <th data-priority="1">Idioma y Nación</th>
+                <th >Frecuencia</th>
+                <th data-priority="1">Conservacion</th>
+                <th>Estante</th>
+                <th>Nivel</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+
+    {% for revista in arrRevistas %}
+            <tr>
+                <td >{{ revista.titulo|capitalize }}</td>
+                <td >{{ revista.mes_otro|capitalize }}</td>
+                <td>{{ revista.categoria|capitalize }}</td>
+
+                <td>{{ revista.anno }}</td>
+
+                <td data-priority="1">{{ revista.tema|capitalize }}</td>
+                <td data-priority="1">{{ revista.idioma|capitalize }} -> {{ revista.nacion|capitalize }}</td>
+                <td >{{ revista.frecuencia|capitalize }}</td>
+                <td data-priority="1">{{ revista.conservacion|capitalize }}</td>
+                <td>{{ revista.estante }}</td>
+                <td>{{ revista.nivel }}</td>
+            </tr>
+    {%  endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+
+
+
+
+
+
+
+
+

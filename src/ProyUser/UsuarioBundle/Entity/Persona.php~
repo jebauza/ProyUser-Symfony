@@ -1,0 +1,263 @@
+<?php
+
+namespace ProyUser\UsuarioBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Persona
+ *
+ * @ORM\Table(name="persona")
+ * @ORM\Entity
+ */
+class Persona
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="USER", type="string", length=30, nullable=true)
+     */
+    private $user;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NOMBRE", type="text", nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CORREO", type="string", length=50, nullable=true)
+     */
+    private $correo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="PASS_DOMINIO", type="string", length=30, nullable=true)
+     */
+    private $passDominio;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NO_TARJETA", type="integer", nullable=false)
+     */
+    private $noTarjeta;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="AREA_NUM", type="integer", nullable=false)
+     */
+    private $areaNum;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AREA", type="text", nullable=false)
+     */
+    private $area;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="CODIGO_DPTO", type="integer", nullable=false)
+     */
+    private $codigoDpto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DEPARTAMENTO", type="text", nullable=false)
+     */
+    private $departamento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="C_IDENTIDA", type="string", length=12, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $cIdentida;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="SEXO", type="string", length=1, nullable=false)
+     */
+    private $sexo;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_ALTA", type="date", nullable=false)
+     */
+    private $fechaAlta;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_BAJA", type="date", nullable=true)
+     */
+    private $fechaBaja;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DIRECCION", type="text", nullable=false)
+     */
+    private $direccion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="MUNICIPIO", type="text", nullable=false)
+     */
+    private $municipio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="PROVINCIA", type="text", nullable=false)
+     */
+    private $provincia;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="TELEFONO", type="integer", nullable=true)
+     */
+    private $telefono;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ESCOLARIDA", type="string", length=30, nullable=false)
+     */
+    private $escolarida;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ESPECIALIDA", type="text", nullable=false)
+     */
+    private $especialida;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CARGO_ACTUAL", type="text", nullable=false)
+     */
+    private $cargoActual;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CATEG_OCUPADA", type="string", length=1, nullable=false)
+     */
+    private $categOcupada;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="SALARIO", type="integer", nullable=false)
+     */
+    private $salario;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_NACI", type="date", nullable=false)
+     */
+    private $fechaNaci;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ESTADO_CIVIL", type="string", length=1, nullable=false)
+     */
+    private $estadoCivil;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NO_HIJOS", type="integer", nullable=false)
+     */
+    private $noHijos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="LUGAR_NACIMIENTO", type="text", nullable=false)
+     */
+    private $lugarNacimiento;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="EDAD", type="integer", nullable=false)
+     */
+    private $edad;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IDIOMA", type="text", nullable=false)
+     */
+    private $idioma;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="COMPUTACION", type="string", length=2, nullable=false)
+     */
+    private $computacion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PISO", type="integer", nullable=false)
+     */
+    private $piso;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="FOTO_NOMBRE", type="string", length=30, nullable=true)
+     */
+    private $fotoNombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TARJETA_RELOJ", type="string", length=11, nullable=true)
+     */
+    private $tarjetaReloj;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TELEFONO_OFICINA", type="string", length=10, nullable=true)
+     */
+    private $telefonoOficina;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CUBICULO", type="string", length=20, nullable=true)
+     */
+    private $cubiculo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="HORA_ENTRAD_SALID", type="string", length=255, nullable=true)
+     */
+    private $horaEntradSalid;
+
+
+}

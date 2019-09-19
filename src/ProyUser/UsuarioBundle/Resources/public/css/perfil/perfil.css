@@ -1,0 +1,14 @@
+
+.fondo{
+height:500px; width: 750px;position: relative;
+z-index: 1000000;
+
+}
+
+.img{ height: 100px;!important;
+width: 150px ;  transform: rotate(-3grad)}
+.informacion{width: 200px; position: absolute; top:40px; left:290px; z-index: 2000000}
+.info2{width: 300px; position: absolute; top:120px; left:100px; z-index: 2000000}
+table td{font-size: 15px;
+padding: 5px; }
+td:hover{font-weight: normal;}

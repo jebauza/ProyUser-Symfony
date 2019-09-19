@@ -1,0 +1,3 @@
+reservacion_principal:
+    pattern:  /
+    defaults: { _controller: ReservacionBundle:Recervacion:principal }

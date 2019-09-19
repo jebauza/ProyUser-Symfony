@@ -1,0 +1,46 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Ernesto
+ * Date: 2/05/15
+ * Time: 23:24
+ */
+
+namespace ProyUser\ReservacionBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="plato")
+ */
+class Plato
+{
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $nombre;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $descripcion;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    protected $precio;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="ProyUser\ReservacionBundle\Entity\Carta_almuerzos", mappedBy="plato")
+     */
+    protected $cartas_almuerzos;
+
+}

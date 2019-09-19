@@ -1,0 +1,190 @@
+{%extends '::base.html.twig'%}
+
+{% block title %}{{ parent() }}-Directorio{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/usuario/css/directorio/directorio.css') }}">
+{% endblock %}
+{% block user %}{{app.user.nombre |title}}{% endblock %}
+{% block activedirectorio %}class="active"{% endblock %}
+{% block body %}
+    <div class="bs-docs-section container">
+    <div  class="panel ">
+    <div class="row">
+    <div class="col-xs-12 " >
+    <div class="panel-heading "><span class="glyphicon glyphicon-search"></span>Directorio de personas</div>
+
+    <!--filtro principal Nombre y apellidos -->
+    <div class=" col-xs-6" id="search-nombre">
+        <div class="input-group ">
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre y Apellidos" required="required">
+            <a href="{{ path('directorio_busqueda',{'filtros':"atr1",'pag':"0"}) }}"  class="buscar input-group-addon "><i class="glyphicon glyphicon-search"></i></a>
+        </div>
+    </div>
+    <!--seleccionador de filtros auxiliares -->
+    <div class="col-xs-3" id="seleccionar-filtro" >
+        <select class="form-control "  title="Filtro" id="filtro">
+            <option>--Seleccione los filtros--</option>
+            <option value="municipio" >Municipio</option>
+            <option value="cargo">Cargo</option>
+            <option value="area">Area</option>
+            <option value="cubiculo">Cubiculo</option>
+            <option value="telefono">Telefono</option>
+            <option value="piso">Piso</option>
+        </select>
+    </div>
+    <div class="clearfix"></div>
+        <input type="hidden" id="valores-filtros" value="{{ filtros }}"/>
+    <!--Filtros auxiliares -->
+     <!--Filtros auxiliares -->
+     <div class="group-filtros">
+         <div class="col-xs-3  filtros" >Municipio<a href="#"><span class="glyphicon glyphicon-remove pull-right"></span></a>
+             <select class="form-control input-sm" name="municipio"  id="municipio">
+                 <option value=""></option>
+                 <option value="Arroyo Naranjo">Arroyo Naranjo</option>
+                 <option value="Boyeros">Boyeros</option>
+                 <option value="Centro Habana">Centro Habana</option>
+                 <option value="Cerro">Cerro</option>
+                 <option value="Cotorro">Cotorro</option>
+                 <option value="Dies de octubre">Dies de octubre</option>
+                 <option value="Guanabacoa">Guanabacoa</option>
+                 <option value="Habana del Este">Habana del Este</option>
+                 <option value="Habana Vieja">Habana Vieja</option>
+                 <option value="Marianao">Marianao</option>
+                 <option value="La Lisa">La Lisa</option>
+                 <option value="Plaza">Plaza</option>
+                 <option value="Playa">Playa</option>
+                 <option value="San Miguel del padron">San Miguel</option>
+                 <option value="Regla">Regla</option>
+             </select></div>
+         <div class="col-xs-4  filtros" >Cargo<a href="#"><span class="glyphicon glyphicon-remove pull-right"></span></a>
+             <input type="text" id="cargo" name="cargo" class="form-control" /></div>
+         <div class="col-xs-4  filtros " >Area<a href="#"><span class="glyphicon glyphicon-remove pull-right"></span></a>
+             <input type="text" id="area" name="area" class="form-control" />
+         </div>
+         <div class="col-xs-4  filtros" >Cubiculo<a href="#"><span class="glyphicon glyphicon-remove pull-right"></span></a>
+             <select class="form-control input-sm" id="cubiculo" name="cubiculo" >
+                 <option value=""></option>
+                 <option value=""></option>
+                 <option value=""></option>
+                 <option value=""></option>
+                 <option value=""></option>
+                 <option value=""></option>
+             </select></div>
+         <div class="col-xs-4  filtros" >Telefono<a href="#"><span class="glyphicon glyphicon-remove pull-right"></span></a>
+             <select class="form-control input-sm" id="telefono" name="telefono" >
+                 <option value=""></option>
+                 <option value=""></option>
+                 <option value=""></option>
+                 <option value=""></option>
+                 <option value=""></option>
+                 <option value=""></option>
+             </select></div>
+         <div class="col-xs-4  filtros">Piso<a href="#"><span class="glyphicon glyphicon-remove pull-right"></span></a>
+             <select class="form-control input-sm " id="piso" name="piso" >
+                 <option value=""></option>
+                 <option value="1">1</option>
+                 <option value="2">2</option>
+                 <option value="3">3</option>
+                 <option value="4">4</option>
+                 <option value="5">5</option>
+                 <option value="6">6</option>
+             </select>
+         </div>
+     </div>
+    <!-- Resultado de la busqueda-->
+        <div class="personas col-xs-12 ">
+        <!-- Seleccionador de paginacion-->
+        <div class="select-paginacion col-lg-4 col-xs-12  pull-right form-inline ">
+            <label for="num-page" class="">Paginas a mostrar</label>
+            <select class="form-control input-sm " name="num-page" >
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+        </div>
+
+
+        <!-- Resultado de la busqueda-->
+        <div class="col-xs-12   table-lg">
+            <table class="table  table-striped ">
+                <tbody>
+
+
+
+            {% set cantpersona = todasPersonas|length %}
+             {% for persona in todasPersonas %}
+               {% if loop.index < 11 %}
+                <tr >
+                    <td>
+                        <div class="foto">
+                            <img src="{{ asset('bundles/usuario/images/directorio/Trabajadores/'~persona.fotoNombre) }}" class="img-thumbnail">
+                        </div>
+                    </td>
+                    <td>
+                        <ul class="persona-info list-unstyled ">
+                            <li><strong>Nombre(s): </strong> {{ persona.nombre }}</li>
+                            <li><strong>Departamento:</strong> {{ persona.departamento }}</li>
+                            <li><strong>Correo: </strong>{{ persona.correo }}</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul class="persona-info list-unstyled">
+                            <li><strong>Cargo:</strong> {{ persona.cargoActual }}</li>
+                            <li><strong>Area:</strong> {{ persona.area }}</li>
+                            <li><strong>Solapin: </strong> {{ persona.noTarjeta }}</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul class="persona-info list-unstyled ">
+                            <li><strong>Municipio:</strong> {{ persona.municipio }}</li>
+                            <li><strong>Piso:</strong> {{ persona.piso }}</li>
+                            <li><strong>Cubiculo:</strong> {{ persona.cubiculo }}</li>
+                            <li><strong>Telefono: </strong> {{ persona.telefonoOficina }} </li>
+                        </ul>
+                    </td>
+                </tr>
+              {% endif %}
+             {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+
+        <nav class="paginacion col-lg-4  col-xs-12">
+            <ul class="pagination">
+             {% if pagina > 0 %}
+                <li>
+                    <a href="{{ path('directorio_busqueda',{'filtros':filtros,'pag':pagina-1}) }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo; Anterior </span>
+                    </a>
+                </li>
+             {% endif %}
+
+
+                <li><a href="#">{{ pagina+1 }}</a></li>
+             {% if cantpersona == 11 %}
+                 <li>
+                    <a href="{{ path('directorio_busqueda',{'filtros':filtros,'pag':pagina+1}) }}" aria-label="Next">
+                        <span aria-hidden="true">Siguiente &raquo;</span>
+                    </a>
+                </li>
+             {% endif %}
+            </ul>
+        </nav>
+    </div >
+    </div>
+    </div>
+
+    </div>
+
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/usuario/js/directorio/directorio.js') }}"></script>
+{% endblock %}

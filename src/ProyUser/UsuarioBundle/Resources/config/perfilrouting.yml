@@ -1,0 +1,3 @@
+perfil_principal:
+    pattern:  /
+    defaults: { _controller: UsuarioBundle:Perfil:principal }

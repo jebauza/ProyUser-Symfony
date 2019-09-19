@@ -1,0 +1,13 @@
+autenticacion_login:
+    pattern:  /
+    defaults: { _controller: AutenticacionBundle:Autenticacion:login }
+
+autenticacion_login_check:
+    pattern: /login_check
+
+autenticacion_logout:
+    pattern: /logout
+
+autenticacion_delogueo:
+    pattern:  /desloguear
+    defaults: { _controller: AutenticacionBundle:Autenticacion:desloguear }

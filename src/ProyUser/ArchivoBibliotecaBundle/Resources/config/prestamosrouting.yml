@@ -1,0 +1,8 @@
+prestamos_principal:
+    pattern:  /
+    defaults: { _controller: ArchivoBibliotecaBundle:Prestamos:principal }
+
+prestamos_busqueda_prestamos:
+    pattern:  /busqueda-prestamos
+    defaults: { _controller: ArchivoBibliotecaBundle:Prestamos:buscarRevistas }
+    requirements: { _method: post }

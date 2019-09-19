@@ -1,0 +1,53 @@
+<?php
+
+namespace ProyUser\UsuarioBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Voto
+ *
+ * @ORM\Table(name="voto")
+ * @ORM\Entity
+ */
+class Voto
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_voto", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idVoto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Ci_votante", type="string", length=12, nullable=false)
+     */
+    private $ciVotante = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Ci_votado", type="string", length=12, nullable=false)
+     */
+    private $ciVotado = '';
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Fecha", type="datetime", nullable=true)
+     */
+    private $fecha;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Tipo_voto", type="string", length=255, nullable=true)
+     */
+    private $tipoVoto;
+
+
+}

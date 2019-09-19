@@ -1,0 +1,7 @@
+directorio_principal:
+    pattern:  /
+    defaults: { _controller: UsuarioBundle:Directorio:principal }
+
+directorio_busqueda:
+    pattern:  /buscar/{filtros}/{pag}
+    defaults: { _controller: UsuarioBundle:Directorio:buscar }
